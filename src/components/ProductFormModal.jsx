@@ -67,12 +67,25 @@ export default function ProductFormModal({ isOpen, onRequestClose, product }) {
       onRequestClose={onRequestClose}
       contentLabel="Product Form"
       style={{
-        overlay: { backgroundColor: "rgba(0, 0, 0, 0.5)" },
+        overlay: {
+          backgroundColor: "rgba(0, 0, 0, 0.5)", // Semi-transparent dark overlay
+          backdropFilter: "blur(6px)", // Apply blur to background
+          WebkitBackdropFilter: "blur(6px)", // Safari support
+          zIndex: 10000,
+          display: "flex",
+          alignItems: "center",
+          justifyContent: "center",
+        },
         content: {
-          maxWidth: "480px",
-          margin: "auto",
+          position: "relative",
+          inset: "unset", // Override default inset to center modal
+          padding: "25px 30px",
           borderRadius: "12px",
-          padding: "25px",
+          maxWidth: "480px",
+          width: "90vw",
+          maxHeight: "90vh",
+          overflowY: "auto",
+          boxShadow: "0 8px 20px rgba(0,0,0,0.3)",
         },
       }}
     >

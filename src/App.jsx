@@ -30,16 +30,27 @@ function App() {
 
   return (
     <div className="app-container">
-      <header className="app-header">
-        <h1>Inventory Management Dashboard</h1>
-        <p>Manage your products easily and efficiently</p>
+      {/* Fixed header container outside main content width */}
+      <header className="fixed-header">
+        <div className="header-inner">
+          <h1 className="app-title">Inventory Management Dashboard</h1>
+          <p className="app-subtitle">Manage your products efficiently</p>
+
+          <div className="header-controls">
+            <button className="app-button" onClick={openAddModal}>
+              Add New Product
+            </button>
+            <SearchFilter />
+            <SortOptions />
+          </div>
+        </div>
       </header>
-      <button className="app-button" onClick={openAddModal}>
-        Add New Product
-      </button>
-      <SearchFilter />
-      <SortOptions />
-      <ProductList onEdit={openEditModal} />
+
+      {/* Push down main content so it doesn't hide below fixed header */}
+      <main className="main-content">
+        <ProductList onEdit={openEditModal} />
+      </main>
+
       <ProductFormModal
         isOpen={modalOpen}
         onRequestClose={() => setModalOpen(false)}
