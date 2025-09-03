@@ -11,6 +11,7 @@ const store = configureStore({
   preloadedState: persistedState,
 });
 
+// Subscribe store changes to save state to localStorage
 store.subscribe(() => {
   saveState({
     products: store.getState().products,

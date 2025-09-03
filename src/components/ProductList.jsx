@@ -8,6 +8,7 @@ export default function ProductList({ onEdit }) {
     (state) => state.products
   );
 
+  // Filter products by search text and selected category
   let filtered = products;
 
   if (search) {
@@ -18,6 +19,8 @@ export default function ProductList({ onEdit }) {
   if (filter) {
     filtered = filtered.filter((p) => p.category === filter);
   }
+
+  // Sort products by selection
   if (sort === "priceAsc") {
     filtered = filtered.slice().sort((a, b) => a.price - b.price);
   } else if (sort === "priceDesc") {

@@ -19,13 +19,13 @@ function App() {
   }, [dispatch]);
 
   const openAddModal = () => {
-    setEditProduct(null);
-    setModalOpen(true);
+    setEditProduct(null); // No product selected for add
+    setModalOpen(true); // Open modal
   };
 
   const openEditModal = (product) => {
-    setEditProduct(product);
-    setModalOpen(true);
+    setEditProduct(product); // Set product to edit
+    setModalOpen(true); // Open modal
   };
 
   return (
